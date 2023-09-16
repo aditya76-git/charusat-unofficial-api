@@ -220,7 +220,7 @@ Sample Result
 Get Attendance Status of the authenticated User
 
 ```python3
-scraper.get_fees_details()
+scraper.get_attendance_status()
 ```
 
 Sample Result
