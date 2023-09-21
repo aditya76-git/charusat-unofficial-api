@@ -1,6 +1,5 @@
-
-
 ![Logo](https://i.imgur.com/bcsXDdX.png)
+
 <div style="text-align:center;">
   <a href="https://github.com/aditya76-git">aditya76-git</a> /
   <a href="https://github.com/aditya76-git/charusat-unofficial-api">charusat-unofficial-api</a>
@@ -11,11 +10,10 @@
 <!-- <img src="https://i.imgur.com/y3L6XfN.png" align="right" /> -->
 
 # CHARUSAT UnOfficial API
+
 Unofficial scraper for accessing student information from Charusat University's website.
 
 Provides methods to interact with the university's website, retrieve student details, attendance, timetable, fees, and more.
-
-
 
 ## 📋Details
 
@@ -23,7 +21,6 @@ Provides methods to interact with the university's website, retrieve student det
 - 📊 [Get Lecture Gross Attendance](#get-lecture-gross-attendance)
 - 📋 [Get Attendance Status](#get-attendance-status)
 - 💲 [Get Fees Details](#get-fees-details)
-
 
 ## ⚠️ Disclaimer
 
@@ -51,36 +48,26 @@ This package empowers developers to harness its capabilities in creating insight
 
 4. **Data Security** : This package interacts with the CHARUSAT E-Governance website in a manner similar to how a regular user would do using their mobile or PC. It performs actions programmatically and allows you to conveniently obtain useful parsed data, ensuring a safe and familiar browsing experience.
 
-
 We encourage responsible and secure use of this package for accessing and managing your educational information.
-
-
-
-
-
 
 ## ⚙️Installation
 
 Open your terminal or command prompt and enter the following command:
 
-
-
 ```bash
 pip install git+https://github.com/aditya76-git/charusat-unofficial-api@main
 ```
-> **Note:** To use this package you need to have a Active Charusat E-Governance Account 
+
+> **Note:** To use this package you need to have a Active Charusat E-Governance Account
 
 ## 🚀Initialization
 
 Initialize an instance of the `CharusatScraper` class by providing your Charusat E-Governance username and password as arguments. Replace `"YOUR_USERNAME"` and `"YOUR_PASSWORD"` with your actual Charusat login credentials.
 
-
-
 ```python3
 from charusat_scraper import CharusatScraper
 scraper = CharusatScraper("YOUR_USERNAME", "YOUR_PASSWORD")
 ```
-
 
 ## <a id="get-user-details"></a>➡️ Get User Details
 
@@ -130,6 +117,7 @@ Sample Result
     ]
 }
 ```
+
 ## <a id="get-lecture-gross-attendance"></a>➡️ Get Lecture Gross Attendance
 
 Get Gross Lecture Attendance information of the authenticated User
@@ -251,7 +239,6 @@ Sample Result
 ]
 ```
 
-
 ## <a id="get-fees-details"></a>➡️ Get Fees Details
 
 Get Fees Details of the authenticated User
@@ -302,11 +289,9 @@ Sample Result
 ]
 ```
 
-
 ## <a id="get-result-data"></a>➡️ Get Result Details (To-Do)
 
-
-**The inclusion of __VIEWSTATE, __VIEWSTATEGENERATOR, and __EVENTVALIDATION in the payload is currently ineffective, rendering this method non-functional at the moment.**
+**The inclusion of **VIEWSTATE, **VIEWSTATEGENERATOR, and \_\_EVENTVALIDATION in the payload is currently ineffective, rendering this method non-functional at the moment.**
 
 Get Result Details of the authenticated User
 
@@ -396,11 +381,9 @@ Sample Result
 }
 ```
 
-
 ## 🌟 Show Your Support
 
 - If you find this project useful or interesting, please consider giving it a star on GitHub. It's a simple way to show your support and help others discover the project.
-
 
 ![Github Stars](https://img.shields.io/github/stars/aditya76-git/charusat-unofficial-api?style=social "Github Stars")
 
@@ -410,13 +393,20 @@ Thank you for your interest in contributing to this project! There are several w
 
 - **Opening Issues**: If you encounter a bug, have a feature request, or want to suggest an improvement, please open an issue. We appreciate your feedback!
 - **Cloning the Project**: To work on the project locally, you can clone the repository by running:
+
 ```bash
 git clone https://github.com/aditya76-git/charusat-unofficial-api.git
 ```
+
 - **Sending Pull Requests**: If you'd like to contribute directly to the codebase, you can fork the repository, make your changes, and then send a pull request. We welcome your contributions!
 
+## Contributors
 
+A Big **Thank You** to those who helped make our project better.
 
+**Gautam Mehta**
+
+- GitHub: [@coderGtm](https://github.com/coderGtm)
 
 ## 💻Authors
 
