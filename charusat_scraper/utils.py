@@ -314,6 +314,9 @@ def parse_attendance_html(html):
     course_name_table = soup.find('table', {'id': 'gvGAttSubjectsPop'})
 
     json_data = []
+    lecture_gross_text = soup.find("span", {"id" : "lblHeadAnnouncement"}).text
+    semester = lecture_gross_text[lecture_gross_text.find("Semester ")+len("Semester ") : lecture_gross_text.find("Semester ")+len("Semester ")+2]
+    lecture_gross_attendance = lecture_gross_text[lecture_gross_text.find("- ")+len("- "):lecture_gross_text.find("%")-1]
 
     # Skip the header row
     for row in gross_attendance_table.find_all('tr')[1:]:
@@ -338,5 +341,7 @@ def parse_attendance_html(html):
             'percentage': percentage
         }
         json_data.append(entry)
+    
+    json_data.append({"Lecture Gross":lecture_gross_attendance+"%", "Semester":semester})
 
     return json.dumps(json_data, indent=4)
