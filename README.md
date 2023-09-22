@@ -206,9 +206,11 @@ Sample Result
 ## <a id="get-attendance-status"></a>➡️ Get Attendance Status
 
 Get Attendance Status of the authenticated User
+USES The APP API
 
 ```python3
 scraper.get_attendance_status()
+scraper.get_attendance_status(date = "22/09/2023")
 ```
 
 Sample Result
@@ -216,25 +218,69 @@ Sample Result
 ```
 [
     {
-        "time": "10:10 - 11:09",
-        "faculty": "FACULTY NAME",
-        "courseCode": "0000 / SDCM",
-        "courseName": "SYNCHRONOUS AND DC MACHINES",
-        "attendanceStatus": "P"
+        "RowID": "4",
+        "Message": "Success",
+        "Status": 1,
+        "TTDate": "21/09/2023",
+        "TTTime": "09:10 - 10:09",
+        "AttTaken": "P",
+        "FacultyName": "FACULTY NAME",
+        "Subjectdet": "0000 / PED-I",
+        "StudentDetails": "BTECH(EE) / SEM 5 / DIV-I",
+        "dayType": "T",
+        "Daymsg": ""
     },
     {
-        "time": "12:10 - 14:09",
-        "faculty": "FACULTY NAME",
-        "courseCode": "0000 / ECAM",
-        "courseName": "ENERGY CONSERVATION, AUDIT AND MANAGEMENT",
-        "attendanceStatus": "NT"
+        "RowID": "1",
+        "Message": "Success",
+        "Status": 1,
+        "TTDate": "21/09/2023",
+        "TTTime": "10:10 - 11:09",
+        "AttTaken": "P",
+        "FacultyName": "FACULTY NAME",
+        "Subjectdet": "0000 / EPTD",
+        "StudentDetails": "BTECH(EE) / SEM 5 / DIV-I",
+        "dayType": "T",
+        "Daymsg": ""
     },
     {
-        "time": "16:20 - 17:19",
-        "faculty": "FACULTY NAME",
-        "courseCode": "0000 / PDA",
-        "courseName": "PYTHON FOR DATA ANALYTICS",
-        "attendanceStatus": "A"
+        "RowID": "2",
+        "Message": "Success",
+        "Status": 1,
+        "TTDate": "21/09/2023",
+        "TTTime": "12:10 - 14:09",
+        "AttTaken": "P",
+        "FacultyName": "FACULTY NAME",
+        "Subjectdet": "0000 / SDCM",
+        "StudentDetails": "BTECH(EE) / SEM 5 / DIV-I / A1",
+        "dayType": "T",
+        "Daymsg": ""
+    },
+    {
+        "RowID": "3",
+        "Message": "Success",
+        "Status": 1,
+        "TTDate": "21/09/2023",
+        "TTTime": "14:20 - 16:20",
+        "AttTaken": "P",
+        "FacultyName": "FACULTY NAME",
+        "Subjectdet": "0000 / ECAM",
+        "StudentDetails": "BTECH(EE) / SEM 5 / DIV-I",
+        "dayType": "T",
+        "Daymsg": ""
+    },
+    {
+        "RowID": "5",
+        "Message": "Success",
+        "Status": 1,
+        "TTDate": "21/09/2023",
+        "TTTime": "16:20 - 18:19",
+        "AttTaken": "-",
+        "FacultyName": "FACULTY NAME",
+        "Subjectdet": "0000 / PDA",
+        "StudentDetails": "BTECH(EE) / SEM 5 / DIV-I / A1",
+        "dayType": "T",
+        "Daymsg": ""
     }
 ]
 ```
@@ -289,11 +335,12 @@ Sample Result
 ]
 ```
 
-## <a id="get-result-data"></a>➡️ Get Result Details (To-Do)
+## <a id="get-result-data"></a>➡️ Get Result Details
 
-**The inclusion of **VIEWSTATE, **VIEWSTATEGENERATOR, and \_\_EVENTVALIDATION in the payload is currently ineffective, rendering this method non-functional at the moment.**
+<!-- **The inclusion of **VIEWSTATE, **VIEWSTATEGENERATOR, and \_\_EVENTVALIDATION in the payload is currently ineffective, rendering this method non-functional at the moment.** -->
 
 Get Result Details of the authenticated User
+USES The APP API
 
 ```python3
 scraper.get_result_data()
@@ -306,78 +353,102 @@ Sample Result
     "result": [
         {
             "courseName": "ENGINEERING MECHANICS",
-            "courseType": "THEORY",
+            "courseCode": "CL143",
+            "padagoggy": "THEORY",
             "credit": "3.00",
-            "grade": "AA"
+            "grade": "AA",
+            "parentSubjectID": "7662"
         },
         {
             "courseName": "ENGINEERING MECHANICS",
-            "courseType": "PRACTICAL",
+            "courseCode": "CL143",
+            "padagoggy": "PRACTICAL",
             "credit": "1.00",
-            "grade": "AB"
+            "grade": "AB",
+            "parentSubjectID": "7662"
         },
         {
             "courseName": "ENVIRONMENTAL SCIENCES",
-            "courseType": "PRACTICAL",
+            "courseCode": "CL144.01 A",
+            "padagoggy": "PRACTICAL",
             "credit": "2.00",
-            "grade": "AB"
+            "grade": "AB",
+            "parentSubjectID": "7983"
         },
         {
             "courseName": "FOUNDATION COURSE ON MATHEMATICS AND PHYSICS",
-            "courseType": "PRACTICAL",
+            "courseCode": "FS101A",
+            "padagoggy": "PRACTICAL",
             "credit": "2.00",
-            "grade": "AA"
+            "grade": "AA",
+            "parentSubjectID": "8123"
         },
         {
             "courseName": "COMMUNICATIVE ENGLISH",
-            "courseType": "PRACTICAL",
+            "courseCode": "HS101.02 A",
+            "padagoggy": "PRACTICAL",
             "credit": "2.00",
-            "grade": "AB"
+            "grade": "AB",
+            "parentSubjectID": "7811"
         },
         {
             "courseName": "ENGINEERING MATHEMATICS-I",
-            "courseType": "THEORY",
+            "courseCode": "MA143",
+            "padagoggy": "THEORY",
             "credit": "4.00",
-            "grade": "AA"
+            "grade": "AA",
+            "parentSubjectID": "7653"
         },
         {
             "courseName": "WORKSHOP PRACTICES",
-            "courseType": "PRACTICAL",
+            "courseCode": "ME142",
+            "padagoggy": "PRACTICAL",
             "credit": "1.00",
-            "grade": "AA"
+            "grade": "AA",
+            "parentSubjectID": "5774"
         },
         {
             "courseName": "ENGINEERING GRAPHICS",
-            "courseType": "THEORY",
+            "courseCode": "ME146",
+            "padagoggy": "THEORY",
             "credit": "2.00",
-            "grade": "AB"
+            "grade": "AB",
+            "parentSubjectID": "7660"
         },
         {
             "courseName": "ENGINEERING GRAPHICS",
-            "courseType": "PRACTICAL",
+            "courseCode": "ME146",
+            "padagoggy": "PRACTICAL",
             "credit": "1.00",
-            "grade": "AA"
+            "grade": "AA",
+            "parentSubjectID": "7660"
         },
         {
             "courseName": "ENGINEERING PHYSICS-I",
-            "courseType": "PRACTICAL",
+            "courseCode": "PY142",
+            "padagoggy": "PRACTICAL",
             "credit": "2.00",
-            "grade": "BB"
+            "grade": "BB",
+            "parentSubjectID": "7961"
         }
     ],
     "summary": [
         {
-            "semester": "1",
-            "month_year": "February 2022",
+            "studentName": "STUDENT NAME",
+            "studentID": "STUDENT ID",
+            "facultyName": "FACULTY OF TECHNOLOGY AND ENGINEERING",
+            "date": "23/02/2022",
+            "program": "B.TECH. (ELECTRICAL)",
+            "examMonthYear": "February 2022",
+            "studentType": "FRESHER",
             "totalCredits": "20.00",
-            "creditsEarned": "20.00",
-            "sgpa": "9.45"
+            "creditEarned": "20.00",
+            "sgpa": "9.45",
+            "cgpa": "9.45",
+            "noofbacklog": "0.00",
+            "studentLastSem": "8"
         }
-    ],
-    "student_info": {
-        "name": "NAME",
-        "id": "21CE000"
-    }
+    ]
 }
 ```
 
@@ -402,7 +473,7 @@ git clone https://github.com/aditya76-git/charusat-unofficial-api.git
 
 ## Contributors
 
-A Big **Thank You** to those who helped make our project better.
+A Big **Thanks** to those who helped make our project better.
 
 **Gautam Mehta**
 
