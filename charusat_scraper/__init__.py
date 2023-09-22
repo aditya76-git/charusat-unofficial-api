@@ -1,1 +1,1 @@
-from .api import CharusatScraper
+from .scraper import CharusatScraper
