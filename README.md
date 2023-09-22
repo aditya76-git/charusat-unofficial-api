@@ -205,8 +205,8 @@ Sample Result
 
 ## <a id="get-attendance-status"></a>➡️ Get Attendance Status
 
-Get Attendance Status of the authenticated User
-USES The APP API
+- Get Attendance Status of the authenticated User
+- USES The APP API
 
 ```python3
 scraper.get_attendance_status()
@@ -339,8 +339,8 @@ Sample Result
 
 <!-- **The inclusion of **VIEWSTATE, **VIEWSTATEGENERATOR, and \_\_EVENTVALIDATION in the payload is currently ineffective, rendering this method non-functional at the moment.** -->
 
-Get Result Details of the authenticated User
-USES The APP API
+- Get Result Details of the authenticated User
+- USES The APP API
 
 ```python3
 scraper.get_result_data()
