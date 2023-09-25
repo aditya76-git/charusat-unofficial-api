@@ -245,5 +245,4 @@ class CharusatPrivateAPI():
             raise Exception(
                 "Error Decoding JSON Response")
 
-        # privateAPI = CharusatPrivateAPI("21ee018", "020803")
-        # print(privateAPI.get_result_data(sem=1, month_year=None))
+        
