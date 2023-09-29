@@ -344,6 +344,7 @@ Sample Result
 
 ```python3
 scraper.get_result_data()
+scraper.get_result_data(sem = 4, month_year = "April 2023")
 ```
 
 Sample Result
