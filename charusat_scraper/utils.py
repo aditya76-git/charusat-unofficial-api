@@ -296,6 +296,12 @@ def parse_attendance_status_html(html):
     return json_data
 
 
+def calculate_gross_attendance(attendance_list):
+    present = sum([int(subject.split("/")[0]) for subject in attendance_list])
+    total = sum([int(subject.split("/")[1]) for subject in attendance_list])
+    return (present / total) * 100 if total > 0 else 0
+
+
 def parse_attendance_html(html):
     '''
     Parse HTML containing Overall Gross Lecture Attendance details and convert it into a JSON string.
@@ -348,11 +354,11 @@ def parse_attendance_html(html):
         }
         json_data['data'].append(entry)
 
-    lect_attendance_list = [int(subject['percentage'].replace('%', '')) for subject in json_data['data'] if subject['classType'] == "LECT"]
-    lab_attendance_list = [int(subject['percentage'].replace('%', '')) for subject in json_data['data'] if subject['classType'] == "LAB"]
+    lect_attendance_list = [subject['attendance'] for subject in json_data['data'] if subject['classType'] == "LECT"]
+    lab_attendance_list = [subject['attendance'] for subject in json_data['data'] if subject['classType'] == "LAB"]
 
-    json_data['lecture_gross'] = f"{sum(lect_attendance_list) / len(lect_attendance_list):.2f}%"
-    json_data['lab_gross'] = f"{sum(lab_attendance_list) / len(lab_attendance_list):.2f}%"
+    json_data['lecture_gross'] = f"{calculate_gross_attendance(lect_attendance_list):.2f}%"
+    json_data['lab_gross'] = f"{calculate_gross_attendance(lab_attendance_list):.2f}%"
 
     json_data['semester'] = semester.strip()
 
