@@ -129,78 +129,83 @@ scraper.get_attendance()
 Sample Result
 
 ```
-[
-    {
-        "courseCode": "CE391 / PDA",
-        "courseName": "PYTHON FOR DATA ANALYTICS",
-        "classType": "LECT",
-        "attendance": "12/15",
-        "percentage": "80%"
-    },
-    {
-        "courseCode": "CE391 / PDA",
-        "courseName": "PYTHON FOR DATA ANALYTICS",
-        "classType": "LAB",
-        "attendance": "4/5",
-        "percentage": "80%"
-    },
-    {
-        "courseCode": "EE342 / SDCM",
-        "courseName": "SYNCHRONOUS AND DC MACHINES",
-        "classType": "LECT",
-        "attendance": "20/26",
-        "percentage": "76%"
-    },
-    {
-        "courseCode": "EE342 / SDCM",
-        "courseName": "SYNCHRONOUS AND DC MACHINES",
-        "classType": "LAB",
-        "attendance": "8/13",
-        "percentage": "61%"
-    },
-    {
-        "courseCode": "EE351 / EPTD",
-        "courseName": "ELECTRICAL POWER TRANSMISSION AND DISTRIBUTION",
-        "classType": "LECT",
-        "attendance": "11/15",
-        "percentage": "73%"
-    },
-    {
-        "courseCode": "EE353 / PED-I",
-        "courseName": "POWER ELECTRONICS AND DRIVES - I",
-        "classType": "LECT",
-        "attendance": "31/34",
-        "percentage": "91%"
-    },
-    {
-        "courseCode": "EE353 / PED-I",
-        "courseName": "POWER ELECTRONICS AND DRIVES - I",
-        "classType": "LAB",
-        "attendance": "7/11",
-        "percentage": "63%"
-    },
-    {
-        "courseCode": "EE375 / ECAM",
-        "courseName": "ENERGY CONSERVATION, AUDIT AND MANAGEMENT",
-        "classType": "LECT",
-        "attendance": "16/24",
-        "percentage": "66%"
-    },
-    {
-        "courseCode": "EE375 / ECAM",
-        "courseName": "ENERGY CONSERVATION, AUDIT AND MANAGEMENT",
-        "classType": "LAB",
-        "attendance": "1/5",
-        "percentage": "20%"
-    },
-    {
-        "courseCode": "HS131.02 A / HS-5",
-        "courseName": "COMMUNICATION AND SOFT SKILLS",
-        "classType": "LAB",
-        "attendance": "8/10",
-        "percentage": "80%"
-    }
-]
+{
+   "data": [
+      {
+         "courseCode": "CE391 / PDA",
+         "courseName": "PYTHON FOR DATA ANALYTICS",
+         "classType": "LECT",
+         "attendance": "33/37",
+         "percentage": "89%"
+      },
+      {
+         "courseCode": "CE391 / PDA",
+         "courseName": "PYTHON FOR DATA ANALYTICS",
+         "classType": "LAB",
+         "attendance": "12/16",
+         "percentage": "75%"
+      },
+      {
+         "courseCode": "EE342 / SDCM",
+         "courseName": "SYNCHRONOUS AND DC MACHINES",
+         "classType": "LECT",
+         "attendance": "40/54",
+         "percentage": "74%"
+      },
+      {
+         "courseCode": "EE342 / SDCM",
+         "courseName": "SYNCHRONOUS AND DC MACHINES",
+         "classType": "LAB",
+         "attendance": "19/28",
+         "percentage": "67%"
+      },
+      {
+         "courseCode": "EE351 / EPTD",
+         "courseName": "ELECTRICAL POWER TRANSMISSION AND DISTRIBUTION",
+         "classType": "LECT",
+         "attendance": "27/39",
+         "percentage": "69%"
+      },
+      {
+         "courseCode": "EE353 / PED-I",
+         "courseName": "POWER ELECTRONICS AND DRIVES - I",
+         "classType": "LECT",
+         "attendance": "39/44",
+         "percentage": "88%"
+      },
+      {
+         "courseCode": "EE353 / PED-I",
+         "courseName": "POWER ELECTRONICS AND DRIVES - I",
+         "classType": "LAB",
+         "attendance": "10/15",
+         "percentage": "66%"
+      },
+      {
+         "courseCode": "EE375 / ECAM",
+         "courseName": "ENERGY CONSERVATION, AUDIT AND MANAGEMENT",
+         "classType": "LECT",
+         "attendance": "38/56",
+         "percentage": "67%"
+      },
+      {
+         "courseCode": "EE375 / ECAM",
+         "courseName": "ENERGY CONSERVATION, AUDIT AND MANAGEMENT",
+         "classType": "LAB",
+         "attendance": "8/12",
+         "percentage": "66%"
+      },
+      {
+         "courseCode": "HS131.02 A / HS-5",
+         "courseName": "COMMUNICATION AND SOFT SKILLS",
+         "classType": "LAB",
+         "attendance": "8/11",
+         "percentage": "72%"
+      }
+   ],
+   "lecture_gross": "77.40%",
+   "lab_gross": "69.20%",
+   "semester": "5"
+}
 ```
 
 ## <a id="get-attendance-status"></a>➡️ Get Attendance Status
