@@ -67,7 +67,8 @@ def parse_user_info(html):
 
     # Combine the address parts and add the pincode
     address = ' '.join(address_parts)
-    pincode = soup.find('input', {'name': 'ctl00$ContentPlaceHolder1$AD2$txtPincode'})
+    pincode = soup.find(
+        'input', {'name': 'ctl00$ContentPlaceHolder1$AD2$txtPincode'})
     if pincode:
         address += " - " + pincode.get('value')
 
@@ -171,7 +172,7 @@ def parse_fees_data(html_data):
         # Create a dictionary for each row and append it to the list
         fees_data.append(entry)
 
-    return json.dumps(fees_data, indent=4)
+    return fees_data
 
 
 def parse_result_data(html):
@@ -228,7 +229,7 @@ def parse_result_data(html):
 
     result_data['student_info'] = student_data
 
-    return json.dumps(result_data, indent=4)
+    return result_data
 
 
 def extract_payload_values_for_results(html):
@@ -292,7 +293,7 @@ def parse_attendance_status_html(html):
         # Create a dictionary for each row and append it to the list
         json_data.append(entry)
 
-    return json.dumps(json_data, indent=4)
+    return json_data
 
 
 def parse_attendance_html(html):
@@ -313,10 +314,15 @@ def parse_attendance_html(html):
     # Find the second table with id "gvGAttSubjectsPop"
     course_name_table = soup.find('table', {'id': 'gvGAttSubjectsPop'})
 
-    json_data = []
-    lecture_gross_text = soup.find("span", {"id" : "lblHeadAnnouncement"}).text
-    semester = lecture_gross_text[lecture_gross_text.find("Semester ")+len("Semester ") : lecture_gross_text.find("Semester ")+len("Semester ")+2]
-    lecture_gross_attendance = lecture_gross_text[lecture_gross_text.find("- ")+len("- "):lecture_gross_text.find("%")-1]
+    json_data = {
+        'data': [],
+    }
+
+    lecture_gross_text = soup.find("span", {"id": "lblHeadAnnouncement"}).text
+    semester = lecture_gross_text[lecture_gross_text.find(
+        "Semester ")+len("Semester "): lecture_gross_text.find("Semester ")+len("Semester ")+2]
+    lecture_gross_attendance = lecture_gross_text[lecture_gross_text.find(
+        "- ")+len("- "):lecture_gross_text.find("%")-1]
 
     # Skip the header row
     for row in gross_attendance_table.find_all('tr')[1:]:
@@ -340,8 +346,15 @@ def parse_attendance_html(html):
             'attendance': present_total,
             'percentage': percentage
         }
-        json_data.append(entry)
-    
-    json_data.append({"Lecture Gross":lecture_gross_attendance+"%", "Semester":semester})
+        json_data['data'].append(entry)
 
-    return json.dumps(json_data, indent=4)
+    lect_attendance_list = [int(subject['percentage'].replace('%', '')) for subject in json_data['data'] if subject['classType'] == "LECT"]
+    lab_attendance_list = [int(subject['percentage'].replace('%', '')) for subject in json_data['data'] if subject['classType'] == "LAB"]
+
+    json_data['lecture_gross'] = f"{sum(lect_attendance_list) / len(lect_attendance_list):.2f}%"
+    json_data['lab_gross'] = f"{sum(lab_attendance_list) / len(lab_attendance_list):.2f}%"
+
+    json_data['semester'] = semester.strip()
+
+
+    return json_data

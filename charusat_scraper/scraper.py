@@ -32,6 +32,7 @@ class CharusatScraper:
         self.session = requests.Session()
         self.setup()
         self.setup_login_cookie_values()
+        self.privateAPI = CharusatPrivateAPI
 
     def check_credentials(self):
         '''
@@ -199,7 +200,7 @@ class CharusatScraper:
 
     def get_attendance_status(self, date=None):
 
-        privateAPI = CharusatPrivateAPI(self.username, self.password)
+        privateAPI = self.privateAPI(self.username, self.password)
 
         return privateAPI.get_attendance_status(date=date)
 
@@ -293,7 +294,7 @@ class CharusatScraper:
             data=data,
         )
 
-        print(response.text)
+        # print(response.text)
 
         return parse_result_data(response.text)
 
@@ -303,7 +304,7 @@ class CharusatScraper:
 
         The APP API requires a less payload compared to the web login method
         '''
-        privateAPI = CharusatPrivateAPI(self.username, self.password)
+        privateAPI = self.privateAPI(self.username, self.password)
 
         return privateAPI.get_result_data(sem=sem, month_year=month_year)
 
@@ -322,4 +323,5 @@ class CharusatScraper:
             "previous_exam_details": previous_exam_details
         }
 
-        return json.dumps(data, indent=4)
+        # return json.dumps(data, indent=4)
+        return data

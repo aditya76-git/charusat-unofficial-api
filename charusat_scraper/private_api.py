@@ -3,7 +3,7 @@ import json
 import datetime
 
 
-class CharusatPrivateAPI():
+class CharusatPrivateAPI:
     '''
     The class uses APP API to retrieve Data which is more convienient and faster than the WEB Method.
     Only Lecture Gross Attendance is not shown in APP rest everything works fine with the APP
@@ -186,7 +186,7 @@ class CharusatPrivateAPI():
 
             result_data['summary'].append(summary_data)
 
-            return json.dumps(result_data, indent=4)
+            return result_data
 
         except:
             raise Exception(
@@ -239,10 +239,11 @@ class CharusatPrivateAPI():
 
             attendance_status_data = response['tblActualTimeTable']
 
-            return json.dumps(attendance_status_data, indent=4)
+            return attendance_status_data
 
         except:
             raise Exception(
                 "Error Decoding JSON Response")
 
-        
+        # privateAPI = CharusatPrivateAPI("21ee018", "020803")
+        # print(privateAPI.get_result_data(sem=1, month_year=None))
