@@ -26,6 +26,7 @@ class CharusatPrivateAPI:
         self.username = username
         self.password = password
         self.session = requests.Session()
+        self.session.headers.update(self.HEADERS)
         self.setup_studentsysid()
 
     def setup_studentsysid(self):
@@ -50,7 +51,7 @@ class CharusatPrivateAPI:
         }
 
         response = self.session.post(
-            "{}/api/Water/eMethod219".format(self.BASE_URL), headers=self.HEADERS, data=json.dumps(payload))
+            "{}/api/Water/eMethod219".format(self.BASE_URL), data=json.dumps(payload))
 
         try:
             response = response.json()
@@ -98,7 +99,7 @@ class CharusatPrivateAPI:
         }
 
         response = self.session.post(
-            "{}/api/Water/eMethod683".format(self.BASE_URL), headers=self.HEADERS, data=json.dumps(payload))
+            "{}/api/Water/eMethod683".format(self.BASE_URL), data=json.dumps(payload))
 
         try:
             response = response.json()
@@ -145,7 +146,7 @@ class CharusatPrivateAPI:
             "EPara5": str(self.password)
         }
         response = requests.post(
-            f"{self.BASE_URL}/api/Water/eMethod467", headers=self.HEADERS, data=json.dumps(payload))
+            f"{self.BASE_URL}/api/Water/eMethod467", data=json.dumps(payload))
 
         try:
             response = response.json()
@@ -232,7 +233,7 @@ class CharusatPrivateAPI:
             "EPara4": str(self.password)
         }
         response = requests.post(
-            f"{self.BASE_URL}/api/Water/eMethod347", headers=self.HEADERS, data=json.dumps(payload))
+            f"{self.BASE_URL}/api/Water/eMethod347", data=json.dumps(payload))
 
         try:
             response = response.json()
@@ -244,6 +245,3 @@ class CharusatPrivateAPI:
         except:
             raise Exception(
                 "Error Decoding JSON Response")
-
-        # privateAPI = CharusatPrivateAPI("21ee018", "020803")
-        # print(privateAPI.get_result_data(sem=1, month_year=None))
