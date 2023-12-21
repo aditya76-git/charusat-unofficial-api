@@ -22,7 +22,7 @@ Provides methods to interact with the university's website, retrieve student det
 - 📋 [Get Attendance Status](#get-attendance-status)
 - 💲 [Get Fees Details](#get-fees-details)
 - 📊 [Get Result Details](#get-result-data)
-- 
+  
 ## ⚠️ Disclaimer
 
 Please note that the `charusat_scraper` package is provided as-is and is not officially endorsed or supported by `CHARUSAT`. We have taken care to ensure that the package interacts with CHARUSAT Website in a secure and compliant manner
