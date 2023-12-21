@@ -21,7 +21,8 @@ Provides methods to interact with the university's website, retrieve student det
 - 📊 [Get Lecture Gross Attendance](#get-lecture-gross-attendance)
 - 📋 [Get Attendance Status](#get-attendance-status)
 - 💲 [Get Fees Details](#get-fees-details)
-
+- 📊 [Get Result Details](#get-result-data)
+- 
 ## ⚠️ Disclaimer
 
 Please note that the `charusat_scraper` package is provided as-is and is not officially endorsed or supported by `CHARUSAT`. We have taken care to ensure that the package interacts with CHARUSAT Website in a secure and compliant manner
@@ -348,8 +349,10 @@ Sample Result
 - USES The APP API
 
 ```python3
-scraper.get_result_data()
-scraper.get_result_data(sem = 4, month_year = "April 2023")
+from charusat_scraper.private_api import CharusatPrivateAPI
+api = CharusatPrivateAPI("YOUR_USERNAME", "YOUR_PASSWORD")
+api.get_result_data(sem = 1)
+api.get_result_data(sem = 4, month_year = "April 2023")
 ```
 
 Sample Result
