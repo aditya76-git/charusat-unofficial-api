@@ -2,7 +2,6 @@ import requests
 import json
 import datetime
 
-
 class CharusatPrivateAPI:
     '''
     The class uses APP API to retrieve Data which is more convienient and faster than the WEB Method.
@@ -101,22 +100,30 @@ class CharusatPrivateAPI:
         response = self.session.post(
             "{}/api/Water/eMethod683".format(self.BASE_URL), data=json.dumps(payload))
 
+        ScheduleExamID = None
+
         try:
             response = response.json()
-            tblScheduleExam = response['tblScheduleExam']
+            tblScheduleExam = response.get('tblScheduleExam', [])
+
+            if not tblScheduleExam:
+                raise Exception("Result not found for sem = {}, month_year = {}".format(sem, month_year))
 
             if month_year is not None:
                 for exam in tblScheduleExam:
-                    if exam['ExamMonthYear'] == month_year:
+                    if exam.get('ExamMonthYear') == month_year:
                         ScheduleExamID = exam.get('ScheduleExamID')
                         break
             else:
-                # defaults to the Latest exam
+                # Defaults to the latest exam
                 ScheduleExamID = tblScheduleExam[0].get("ScheduleExamID")
+
+            if ScheduleExamID is None:
+                raise Exception("ScheduleExamID not found in the response.")
 
             return ScheduleExamID
 
-        except:
+        except json.JSONDecodeError:
             raise Exception("Error Decoding JSON Response")
 
     def get_result_data(self, sem=1, month_year=None):
@@ -189,7 +196,7 @@ class CharusatPrivateAPI:
 
             return result_data
 
-        except:
+        except json.JSONDecodeError:
             raise Exception(
                 "Error Decoding JSON Response")
 
@@ -242,6 +249,6 @@ class CharusatPrivateAPI:
 
             return attendance_status_data
 
-        except:
+        except json.JSONDecodeError:
             raise Exception(
                 "Error Decoding JSON Response")
