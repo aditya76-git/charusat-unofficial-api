@@ -145,7 +145,7 @@ class CharusatPrivateAPI:
             "EPara4": "M",
             "EPara5": str(self.password)
         }
-        response = requests.post(
+        response = self.session.post(
             f"{self.BASE_URL}/api/Water/eMethod467", data=json.dumps(payload))
 
         try:
@@ -232,7 +232,7 @@ class CharusatPrivateAPI:
             "EPara3": date,  # date,
             "EPara4": str(self.password)
         }
-        response = requests.post(
+        response = self.session.post(
             f"{self.BASE_URL}/api/Water/eMethod347", data=json.dumps(payload))
 
         try:
